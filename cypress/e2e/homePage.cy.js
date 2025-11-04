@@ -34,7 +34,7 @@ it('Перевірка аккаунту', ()=>{
         .should('be.visible')
         .and('have.attr','href','https://theconnectedshop.com/customer_authentication/redirect?locale=en&region_country=US');
     cy.get('div.header__icons>a.header__icon--account>svg.icon-account')
-        .shouldhav('be.visible')
+        .should('be.visible')
         .and('have.attr','width','24')
         .and('have.attr','height','24');
 })
