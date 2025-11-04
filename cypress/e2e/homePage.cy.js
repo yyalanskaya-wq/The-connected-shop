@@ -60,7 +60,7 @@ it('Перевірка пошуку', ()=>{
     cy.get('input#Search-In-Inline')
         .should('have.attr','placeholder','Search');
 })
-it.only('Пошук товара з результатом', ()=>{
+it('Пошук товара з результатом', ()=>{
     const searchText = 'laptop';
     cy.visit('https://theconnectedshop.com/');
     cy.get('input#Search-In-Inline')
@@ -73,7 +73,7 @@ it.only('Пошук товара з результатом', ()=>{
         .should('be.visible')
         .and('contain', 'result');
 })
-it.only('Пошук без результату', () =>{
+it('Пошук без результату', () =>{
     const searchText = 'banana';
     cy.visit('https://theconnectedshop.com/');
     cy.get('input#Search-In-Inline')
