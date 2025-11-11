@@ -64,9 +64,9 @@ it('Пошук товара з результатом', ()=>{
     const searchText = 'laptop';
     cy.visit('https://theconnectedshop.com/');
     cy.get('input#Search-In-Inline')
+        .should('be.enabled')
         .type(searchText)
         .should('have.value', searchText);
-    //cy.get('button.search__button--header').first().click();
     cy.get('a.predictive-search__header').click();
     cy.url().should('include', `/search?q=${searchText}`);
     cy.get('span#ProductCount')
