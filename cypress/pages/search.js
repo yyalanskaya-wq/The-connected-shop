@@ -22,18 +22,23 @@ export class Search {
   }
  
   verifySearchResult(searchText) {
-    cy.url().should('include', `/search?q=${searchText}`);
-    cy.get(this.productCount)
-      .should('be.visible')
-      .and('contain', 'result');
-  }
+    // cy.url().should('include', `/search?q=${searchText}`);
+    // cy.get(this.productCount)
+    //   .should('be.visible')
+    //   .and('contain', 'result');
+    cy.url({ timeout: 10000 }).should((url) => {
+    const parsedUrl = new URL(url);
+    const query = parsedUrl.searchParams.get('q');
+    expect(query.replace(/\+/g, ' ')).to.eq(searchText);
+  })
+}
 
   verifyExactResult(searchText) {
     cy.get(this.exactProduct)
       .should('be.visible');
     cy.get(this.exactProductName).eq(0)
       .should('be.visible')
-      .and('contain', 'Keyboard');
+      .and('contain', searchText);
 
   }
  

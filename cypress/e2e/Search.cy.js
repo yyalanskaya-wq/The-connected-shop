@@ -11,7 +11,7 @@ describe('Перевірка пошуку',()=>{
     })
 
     it('Перевірка пошуку-існуючого товару',() =>{
-        const searchText = 'keyboard';
+        const searchText = 'Laser Keyboard';
         search.searchProduct(searchText);
         search.verifySearchResult(searchText);
         search.verifyExactResult(searchText);
