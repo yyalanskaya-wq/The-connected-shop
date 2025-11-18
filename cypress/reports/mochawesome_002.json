@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-14T18:09:59.662Z",
+    "end": "2025-11-14T18:10:24.438Z",
+    "duration": 24776,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d49ab223-25b4-48b3-b09a-efb1d5914bf7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homePage2.cy.js",
+      "file": "cypress\\e2e\\homePage2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c7a4a934-a8e3-454f-b08a-1898d0ae9795",
+          "title": "The connected shop - перевірка головної сторінки",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Перевірка відкриття сайту",
+              "fullTitle": "The connected shop - перевірка головної сторінки Перевірка відкриття сайту",
+              "timedOut": null,
+              "duration": 6748,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "home.checkUrl();\nhome.verifyTitle();",
+              "err": {},
+              "uuid": "8e142212-7bff-402d-a87e-8a274a30cc22",
+              "parentUUID": "c7a4a934-a8e3-454f-b08a-1898d0ae9795",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Перевірка Шапки сайту",
+              "fullTitle": "The connected shop - перевірка головної сторінки Перевірка Шапки сайту",
+              "timedOut": null,
+              "duration": 10345,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "header.verifyLogo();\nheader.verifyCart();\nheader.verifyAccount();\nheader.verifyPhone();",
+              "err": {},
+              "uuid": "9bf11f12-e18c-4156-acc8-b36b1e664f97",
+              "parentUUID": "c7a4a934-a8e3-454f-b08a-1898d0ae9795",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Перевірка пошуку",
+              "fullTitle": "The connected shop - перевірка головної сторінки Перевірка пошуку",
+              "timedOut": null,
+              "duration": 4614,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "search.verifySearchField();",
+              "err": {},
+              "uuid": "bfff982c-298c-4e12-9350-00b7bbc940b6",
+              "parentUUID": "c7a4a934-a8e3-454f-b08a-1898d0ae9795",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8e142212-7bff-402d-a87e-8a274a30cc22",
+            "9bf11f12-e18c-4156-acc8-b36b1e664f97",
+            "bfff982c-298c-4e12-9350-00b7bbc940b6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21707,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

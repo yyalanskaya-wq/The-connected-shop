@@ -1,4 +1,5 @@
 import { Registration } from '../pages/registration';
+import { faker } from '@faker-js/faker';
 
 describe('Finmore - перевірка головноъ сторінки та регстрація ', () => {
 
@@ -20,7 +21,8 @@ describe('Finmore - перевірка головноъ сторінки та р
     it('Перевірка кнопки регістрації та реєстрації', () =>{
 
         const userFullName = 'Олег Ляшко';
-        const userEmail = 'olega359@ukr.net'
+        // const userEmail = 'olega359@ukr.net'
+        const userEmail = faker.internet.email();
         const userPassword = 'tututu359!'
 
         registration.checkRegister();
@@ -28,7 +30,8 @@ describe('Finmore - перевірка головноъ сторінки та р
         registration.checkEmail(userEmail);
         registration.checkPassword(userPassword);
         registration.checkPassword2(userPassword);
-        // registration.checkCurrency()
+        registration.checkCurrency();
+        registration.checkRegister2();
     })
 
 
