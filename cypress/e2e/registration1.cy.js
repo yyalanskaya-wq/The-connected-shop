@@ -1,7 +1,16 @@
 import { Registration } from '../pages/registration';
 import { faker } from '@faker-js/faker';
+import {generateUniqueEmail} from '../support/Utils';
+import {generateUkrainianFullName} from '../support/Utils'
 
-describe('Finmore - перевірка головноъ сторінки та регстрація ', () => {
+ 
+//     function generateUniqueEmail() {
+//     const timestamp = Date.now();
+//     const randomString = Math.random().toString(36).substring(2, 8);
+//     return `yuliatester+${timestamp}${randomString}@gmail.com`;
+// }
+
+describe('Finmore - перевірка головної сторінки та регістрація ', () => {
 
     const registration = new Registration()
 
@@ -20,10 +29,13 @@ describe('Finmore - перевірка головноъ сторінки та р
 
     it('Перевірка кнопки регістрації та реєстрації', () =>{
 
-        const userFullName = 'Олег Ляшко';
+        // const userFullName = 'Олег Ляшко';
+        const userFullName = generateUkrainianFullName();
         // const userEmail = 'olega359@ukr.net'
-        const userEmail = faker.internet.email();
+        // const userEmail = faker.internet.email();
+        const userEmail = generateUniqueEmail();
         const userPassword = 'tututu359!'
+        
 
         registration.checkRegister();
         registration.checkFullname(userFullName);
@@ -37,3 +49,5 @@ describe('Finmore - перевірка головноъ сторінки та р
 
     
 })
+
+

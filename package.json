@@ -4,11 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean:reports": "powershell Remove-Item -Recurse -Force cypress\\reports\\*",
-    "test": "npm run clean:reports && cypress run",
-    "report:merge": "node merge.js",
-    "report:generate": "merge cypress/reports/report.json -o cypress/reports/html",
-    "report": "npm run report:merge && npm run report:generate"
+
   },
   "keywords": [],
   "author": "",
@@ -18,6 +14,7 @@
     "@faker-js/faker": "^10.1.0",
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "cypress": "^15.5.0",
+    "cypress-mochawesome-reporter": "^4.0.2",
     "mocha": "^11.0.0",
     "mochawesome": "^7.1.4",
     "mochawesome-merge": "^5.0.0",
