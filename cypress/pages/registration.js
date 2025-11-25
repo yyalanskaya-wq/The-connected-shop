@@ -166,7 +166,7 @@ export class Registration {
         .should('contain','Скасувати');
         cy.get(this.submit)
         .should('contain','Створити')
-        .click({force: true})
+        .click()
     }
 
 

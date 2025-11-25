@@ -4,6 +4,7 @@ import {generateUniqueEmail} from '../support/Utils';
 import {generateUkrainianFullName} from '../support/Utils'
 
 
+
 const testData = require('../fixtures/registrationData'); 
 
 
@@ -13,6 +14,7 @@ describe('Finmore - перевірка головної сторінки та р
 
 
     beforeEach(() =>{
+        cy.viewport(1980,1080);
         registration.open();
     })
 
