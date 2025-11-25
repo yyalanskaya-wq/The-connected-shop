@@ -1,3 +1,14 @@
+// const testData = {
+// userFullName: generateUkrainianFullName(),
+// userEmail: generateUniqueEmail(),
+// userPassword: 'tututu359!'
+// };
+
+    // cy.fixture('registrationData').then((data) => {
+    //         testData = { ...data };
+    //         testData.userFullName = generateUkrainianFullName();
+    //         testData.userEmail = generateUniqueEmail();
+    //     });
 describe ('The Connected Shop - Перевірка відкриття сайту', () => {
     it('Повинен відкрити головну сторінку і перевірити URL', () => {
         cy.visit('https://theconnectedshop.com/');

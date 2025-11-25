@@ -8,7 +8,19 @@ export class Registration {
     currencyButton = '[data-testid="register-currency-select"]';
     currencyUah = '[data-testid="currency-option-UAH"]';
     currencyUSD = '[data-testid="currency-option-USD"]';
-    registerbutton2 = '[data-testid="register-submit-button"]'
+    registerbutton2 = '[data-testid="register-submit-button"]';
+    transactionButton = '[data-testid="add-transaction-button"]';
+    expenseButton = '[data-testid="expense-type-button"]';
+    incomeButton = '[data-testid="income-type-button"]';
+    sumInput = '[data-testid="transaction-amount-input"][step="0.01"]';
+    transCategory = '[data-testid="transaction-category-select"]';
+    transDescription = '[data-testid="transaction-description-input"]';
+    date = '[data-testid="transaction-date-input"]';
+    account = '[data-testid="transaction-account-select"]';
+    tag = '[data-testid="new-tag-input"]';
+    addTag = '[data-testid="add-tag-button"]';
+    cancel = '[data-testid="transaction-form-cancel"]';
+    submit = '[data-testid="transaction-form-submit"]'
 
     open() {
         cy.log('Відкрити сайт')
@@ -82,10 +94,6 @@ export class Registration {
         .should ('have.value', 'USD')
         .and('contain', 'Долар США (USD)')
 
-        // .should('.dropdown-menu-item', this.currencyUah)
-        // (this.currencyButton).click();
-        // cy.contains('.dropdown-menu-item', currencyUah)
-
     }
 
     checkRegister2(){
@@ -94,5 +102,73 @@ export class Registration {
         .and('contain','Зареєструватися')
         .click()
     }
+    checkTransactionButton(){
+        cy.get(this.transactionButton)
+        .should('be.visible')
+        .and('contain','Додати транзакцію')
+        .click()
+    }
+    checkExpensesButton(){
+        cy.get(this.expenseButton)
+        .should('be.visible')
+        .and('contain','Витрата');
+        cy.get(this.incomeButton)
+        .should('be.visible')
+        .and('contain','Дохід')
+        .click()
+    }
+
+    checkSumInput(){
+        cy.get(this.sumInput)
+        .clear()
+        .type('1020.3')
+        .should('have.value', '1020.30')
+    }
+
+    checkCategory(){
+        cy.get(this.transCategory)
+        .should ('contain','Оберіть категорію')
+        .select('Фриланс')
+        .should ('have.value', 'Фриланс')
+        .and('contain', 'Фриланс')
+    }
+
+    checkDescription(){
+        cy.get(this.transDescription)
+        .type('Розробка')
+        .should('have.value','Розробка')
+    }
+
+    checkDate(){
+        cy.get(this.date)
+        .type('2025-10-19')
+        .should('have.value','2025-10-19')
+    }
+
+    checkAccount(){
+        cy.get(this.account)
+        .should('contain','Оберіть рахунок')
+        .select('Картка ПриватБанку')
+        .should('have.value','Картка ПриватБанку')
+        .and('contain','Картка ПриватБанку')
+    }
+
+    checkTag(){
+        cy.get(this.tag)
+        .should('have.attr', 'placeholder','Додати тег')
+        .type ('Дохід за жовтень')
+        .should('have.value','Дохід за жовтень');
+        cy.get(this.addTag)
+        .click()
+    }
+    checkEndButtons(){
+        cy.get(this.cancel)
+        .should('contain','Скасувати');
+        cy.get(this.submit)
+        .should('contain','Створити')
+        .click({force: true})
+    }
+
+
 
 }

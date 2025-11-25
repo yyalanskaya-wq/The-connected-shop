@@ -19,3 +19,10 @@ export function generateUkrainianFullName() {
     const randomSurname = ukrainianSurnames[Math.floor(Math.random() * ukrainianSurnames.length)];
     return `${randomName} ${randomSurname}`;
     }
+
+    
+    //     function generateUniqueEmail() {
+//     const timestamp = Date.now();
+//     const randomString = Math.random().toString(36).substring(2, 8);
+//     return `yuliatester+${timestamp}${randomString}@gmail.com`;
+// }
