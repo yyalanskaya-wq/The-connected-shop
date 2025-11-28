@@ -1,4 +1,4 @@
-const { generateUniqueEmail, generateUkrainianFullName } = require("../support/Utils");
+const { generateUniqueEmail, generateUkrainianFullName } = require("../support/utils");
  
 module.exports = {
     userFullName: generateUkrainianFullName(),

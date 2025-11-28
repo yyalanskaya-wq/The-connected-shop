@@ -1,4 +1,5 @@
-export class Registration {
+import { GlobalMethods } from "../support/globalMethods";
+export class Registration extends GlobalMethods{
     loginbutton = '[data-testid="login-submit-button"]';
     registerbutton = '[data-testid="switch-to-register-button"]';
     fullNameinput = '[data-testid="register-name-input"]';
@@ -17,156 +18,142 @@ export class Registration {
     transDescription = '[data-testid="transaction-description-input"]';
     date = '[data-testid="transaction-date-input"]';
     account = '[data-testid="transaction-account-select"]';
-    tag = '[data-testid="new-tag-input"]';
-    addTag = '[data-testid="add-tag-button"]';
+    tagField = '[data-testid="new-tag-input"]';
+    addTagButton = '[data-testid="add-tag-button"]';
     cancel = '[data-testid="transaction-form-cancel"]';
-    submit = '[data-testid="transaction-form-submit"]'
+    submit = '[data-testid="transaction-form-submit"]';
 
     open() {
-        cy.log('Відкрити сайт')
-        cy.visit('https://finmore.netlify.app/');
+        this.log('Відкрити сайт');
+        this.visit('https://finmore.netlify.app/');
     }
 
-    checkUrl() {
-        cy.log('Перевірка лінку')
-        cy.url().should('eq', 'https://finmore.netlify.app/');
+    checkRegUrl() {
+        this.log('Перевірка лінку');
+        this.checkUrl('https://finmore.netlify.app/');
     }
 
     verifyTitle() {
-        cy.log('Перевірка тайтлу')
-        cy.title().should('include','Повнофункціональний фінансовий менеджер')
+        this.log('Перевірка тайтлу')
+        cy.title()
+            .should('include','Повнофункціональний фінансовий менеджер');
     }
 
     checkLogin() {
-        cy.log('Перевірка логін кнопки')
-        cy.get(this.loginbutton)
-        .should('be.visible')
-        .and('contain','Увійти')
-        .click()
+        this.log('Перевірка логін кнопки');
+        this.checkText(this.loginbutton, 'Увійти')
+        this.click(this.loginbutton);
     }
     checkRegister() {
-        cy.get(this.registerbutton)
-        .should ('be.visible')
-        .and('contain','Зареєструватися')
-        .click()
+        this.log('Перевірка кнопки реєстрації');
+        this.checkText(this.registerbutton, 'Зареєструватися')
+        this.click(this.registerbutton);
+        
     }
 
-    checkFullname(userFullName) {
-        cy.get(this.fullNameinput)
-        .should('be.visible')
-        .and('have.attr','placeholder','Іван Петренко');
-        cy.get(this.fullNameinput)
-        .type(userFullName)
-        .should('have.value', userFullName)
+    checkFullname(value) {
+        this.log('Перевірка повного імя');
+        this.checkAttribute(this.fullNameinput, 'placeholder','Іван Петренко');
+        this.typeValue(this.fullNameinput, value);
 
     }
 
     checkEmail(userEmail){
-        cy.get(this.emailInput)
-        .should('be.visible')
-        .and('have.attr','placeholder','your@email.com');
-        cy.get(this.emailInput)
-        .type(userEmail)
-        .should('have.value', userEmail)
+        this.log('Перевірка імейлу')
+        this.checkAttribute(this.emailInput, 'placeholder','your@email.com')
+        this.typeValue(this.emailInput, userEmail)
     }
 
     checkPassword(userPassword){
-        cy.get(this.password)
-        .should('be.visible')
-        .and('have.attr','placeholder','Мінімум 6 символів');
-        cy.get(this.password)
-        .type(userPassword)
-        .should('have.value', userPassword)
+        this.log('Перевірка паролю')
+        this.checkAttribute(this.password, 'placeholder','Мінімум 6 символів')
+        this.typeValue(this.password, userPassword)
     }
 
     checkPassword2(userPassword){
-        cy.get(this.password2)
-        .should('be.visible')
-        .and('have.attr', 'placeholder', 'Повторіть пароль');
-        cy.get(this.password2)
-        .type(userPassword)
-        .should('have.value', userPassword)
+        this.log ('Підтвердження паролю')
+        this.checkAttribute(this.password2, 'placeholder','Повторіть пароль')
+        this.typeValue(this.password2, userPassword)
 
     }
     
     checkCurrency(){
-        cy.get(this.currencyButton).select('USD')
-        .should ('have.value', 'USD')
-        .and('contain', 'Долар США (USD)')
+        this.log ('Перевірка валюти')
+        cy.get(this.currencyButton)
+            .select('USD')
+            .should ('have.value', 'USD')
+            .and('contain', 'Долар США (USD)')
 
     }
 
     checkRegister2(){
-        cy.get(this.registerbutton2)
-        .should ('be.visible')
-        .and('contain','Зареєструватися')
-        .click()
+        this.log('Кнопка реєстрації')
+        this.checkText(this.registerbutton2, 'Зареєструватися')
+        this.click(this.registerbutton2)
     }
     checkTransactionButton(){
-        cy.get(this.transactionButton)
-        .should('be.visible')
-        .and('contain','Додати транзакцію')
-        .click()
+        this.log('Кнопка транзакцій')
+        this.checkText(this.transactionButton, 'Додати транзакцію')
+        this.click(this.transactionButton);
     }
     checkExpensesButton(){
-        cy.get(this.expenseButton)
-        .should('be.visible')
-        .and('contain','Витрата');
-        cy.get(this.incomeButton)
-        .should('be.visible')
-        .and('contain','Дохід')
-        .click()
+        this.log('Вид транзакції');
+        this.checkText(this.expenseButton, 'Витрата' )
+        this.checkText(this.incomeButton, 'Дохід')
+        this.click(this.incomeButton);
     }
 
     checkSumInput(){
+        this.log('Перевірка суми');
         cy.get(this.sumInput)
         .clear()
         .type('1020.3')
-        .should('have.value', '1020.30')
+        .should('have.value', '1020.30');
     }
 
     checkCategory(){
-        cy.get(this.transCategory)
-        .should ('contain','Оберіть категорію')
-        .select('Фриланс')
-        .should ('have.value', 'Фриланс')
-        .and('contain', 'Фриланс')
+        this.log('Перевірка категорії')
+        this.checkText(this.transCategory, 'Оберіть категорію')
+        this.select(this.transCategory, 'Фриланс')
+        // cy.get(this.transCategory)
+        // .should ('contain','Оберіть категорію')
+        // .select('Фриланс')
+        // .should ('have.value', 'Фриланс')
+        // .and('contain', 'Фриланс')
     }
 
     checkDescription(){
-        cy.get(this.transDescription)
-        .type('Розробка')
-        .should('have.value','Розробка')
+        this.log('Перевірка опису')
+        this.typeValue(this.transDescription, 'Розробка')
     }
 
     checkDate(){
-        cy.get(this.date)
-        .type('2025-10-19')
-        .should('have.value','2025-10-19')
+        this.log('Перевірка дати')
+        this.typeDate(this.date,'2025-10-19' )
     }
 
     checkAccount(){
-        cy.get(this.account)
-        .should('contain','Оберіть рахунок')
-        .select('Картка ПриватБанку')
-        .should('have.value','Картка ПриватБанку')
-        .and('contain','Картка ПриватБанку')
+        this.log('Перевірка рахунку')
+        this.checkText(this.account, 'Оберіть рахунок' )
+        this.select(this.account, 'Картка ПриватБанку')
+        // cy.get(this.account)
+        // .should('contain','Оберіть рахунок')
+        // .select('Картка ПриватБанку')
+        // .should('have.value','Картка ПриватБанку')
+        // .and('contain','Картка ПриватБанку')
     }
 
     checkTag(){
-        cy.get(this.tag)
-        .should('have.attr', 'placeholder','Додати тег')
-        .type ('Дохід за жовтень')
-        .should('have.value','Дохід за жовтень');
-        cy.get(this.addTag)
-        .click()
+        this.log('Перевірка тегу')
+        this.checkAttribute(this.tagField, 'placeholder','Додати тег' )
+        this.typeValue (this.tagField, 'Дохід за жовтень')
+        this.click(this.addTagButton)
     }
     checkEndButtons(){
-        cy.get(this.cancel)
-        .should('contain','Скасувати');
-        cy.get(this.submit)
-        .should('contain','Створити')
-        .click()
+        this.log('Перевірка кнопок скасувати/створити')
+        this.checkText(this.cancel, 'Скасувати')
+        this.checkText(this.submit, 'Створити')
+        this.click(this.submit)
     }
 
 
