@@ -44,13 +44,18 @@ export class Registration extends GlobalMethods{
         this.checkText(this.loginbutton, 'Увійти')
         this.click(this.loginbutton);
     }
-    checkRegister() {
+    // checkRegister() {
+    //     this.log('Перевірка кнопки реєстрації');
+    //     this.checkText(this.registerbutton, 'Зареєструватися')
+    //     this.click(this.registerbutton);
+        
+    // }
+    checkRegister(value) {
         this.log('Перевірка кнопки реєстрації');
-        this.checkText(this.registerbutton, 'Зареєструватися')
+        this.checkText(this.registerbutton, value)
         this.click(this.registerbutton);
         
     }
-
     checkFullname(value) {
         this.log('Перевірка повного імя');
         this.checkAttribute(this.fullNameinput, 'placeholder','Іван Петренко');
@@ -79,10 +84,12 @@ export class Registration extends GlobalMethods{
     
     checkCurrency(){
         this.log ('Перевірка валюти')
-        cy.get(this.currencyButton)
-            .select('USD')
-            .should ('have.value', 'USD')
-            .and('contain', 'Долар США (USD)')
+        this.select(this.currencyButton, 'USD')
+        this.checkText(this.currencyButton, 'Долар США (USD)')
+        // cy.get(this.currencyButton)
+        //     .select('USD')
+        //     .should ('have.value', 'USD')
+        //     .and('contain', 'Долар США (USD)')
 
     }
 
@@ -105,6 +112,7 @@ export class Registration extends GlobalMethods{
 
     checkSumInput(){
         this.log('Перевірка суми');
+        // this.typeValue(this.sumInput, '1020.3')
         cy.get(this.sumInput)
         .clear()
         .type('1020.3')

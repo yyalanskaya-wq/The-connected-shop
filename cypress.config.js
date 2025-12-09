@@ -22,4 +22,5 @@ module.exports = defineConfig({
     return config;
     },
   },
+  env: {apiBaseUrl: 'https://dev.emeli.in.ua/wp-json/wp/v2'}
 });

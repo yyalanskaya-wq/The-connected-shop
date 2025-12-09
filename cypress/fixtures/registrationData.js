@@ -3,7 +3,7 @@ const { generateUniqueEmail, generateUkrainianFullName } = require("../support/u
 module.exports = {
     userFullName: generateUkrainianFullName(),
     userEmail: generateUniqueEmail(),
-    userPassword: "tututu359!"
-
+    userPassword: "tututu359!",
+    regName: 'Зареєструватися'
 };
  

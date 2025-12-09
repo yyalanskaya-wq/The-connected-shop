@@ -29,7 +29,8 @@ describe('Finmore - перевірка головної сторінки та р
     });
 
     it('Перевірка нового облікового запису',() =>{
-        registration.checkRegister();
+        // registration.checkRegister();
+        registration.checkRegister(testData.regName);
         registration.checkFullname(testData.userFullName);
         registration.checkEmail(testData.userEmail);
         registration.checkPassword(testData.userPassword);
