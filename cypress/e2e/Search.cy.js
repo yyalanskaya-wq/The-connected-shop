@@ -1,10 +1,11 @@
-import { Search } from '../pages/search';
-import { HomePage } from '../pages/HomePage';
+import { HomePage } from "../pages/homepage";
+import { Search } from "../pages/Search";
+
 
 describe('Перевірка пошуку',()=>{
 
-    const search = new Search();
-    const home = new HomePage();
+    const search = new Search()
+    const home = new HomePage()
 
     beforeEach(() =>{
         home.open();

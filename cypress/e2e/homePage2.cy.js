@@ -1,6 +1,7 @@
-import { HomePage } from '../pages/HomePage';
-import { Search } from '../pages/search';
-import { Header } from '../pages/header';
+
+import { Header } from "../pages/header";
+import { HomePage } from "../pages/homepage";
+import { Search } from "../pages/Search";
 
 describe('The connected shop - перевірка головної сторінки', ()=>{
 
